@@ -53,10 +53,7 @@ const TableBody = props => {
         <td>
           <input
             type="checkbox"
-            onChange={() => {
-              const idx = index;
-              props.toggleTodos(idx);
-            }}
+            onChange={() => props.toggleTodos(index)}
             checked={row.isCompleted}
           />
         </td>
@@ -64,14 +61,7 @@ const TableBody = props => {
           <RenderText row={row} editTodo={props.editTodo} index={index} />
         </td>
         <td>
-          <button
-            onClick={() => {
-              const idx = index;
-              props.removeTodos(idx);
-            }}
-          >
-            Delete
-          </button>
+          <button onClick={() => props.removeTodos(index)}>Delete</button>
         </td>
       </tr>
     );
