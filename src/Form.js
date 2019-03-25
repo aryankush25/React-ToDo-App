@@ -18,11 +18,6 @@ class Form extends Component {
     const isCompleted = false;
     const isEditable = false;
 
-    // console.log(this.state)
-    // console.log(event.target)
-    // console.log('caption', caption)
-    // console.log('isCompleted', isCompleted)
-
     this.setState({
       caption,
       isCompleted,

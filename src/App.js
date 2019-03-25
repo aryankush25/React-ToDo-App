@@ -45,7 +45,6 @@ class App extends Component {
     this.setState({
       todos: todosObj
     });
-    //console.log("App Edited", caption);
   };
 
   render() {
