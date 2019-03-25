@@ -22,12 +22,30 @@ class App extends Component {
   };
 
   toggleTodos = id => {
-    const todosObj = this.state.todos[id];
-    todosObj.isCompleted = !todosObj.isCompleted;
-    this.state.todos[id] = todosObj;
+    const todosObj = [...this.state.todos];
+    todosObj[id].isCompleted = !todosObj[id].isCompleted;
     this.setState({
-      todos: [...this.state.todos]
+      todos: todosObj
     });
+  };
+
+  toggleEditable = id => {
+    const todosObj = [...this.state.todos];
+    todosObj[id].isEditable = !todosObj[id].isEditable;
+    this.setState({
+      todos: todosObj
+    });
+  };
+
+  editTodo = (id, caption) => {
+    const todosObj = [...this.state.todos];
+    todosObj[id].caption = caption;
+    todosObj[id].isCompleted = false;
+    todosObj[id].isEditable = false;
+    this.setState({
+      todos: todosObj
+    });
+    //console.log("App Edited", caption);
   };
 
   render() {
@@ -39,6 +57,8 @@ class App extends Component {
           todos={this.state.todos}
           removeTodos={this.removeTodos}
           toggleTodos={this.toggleTodos}
+          toggleEditable={this.toggleEditable}
+          editTodo={this.editTodo}
         />
       </div>
     );

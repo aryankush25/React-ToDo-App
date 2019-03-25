@@ -6,7 +6,8 @@ class Form extends Component {
 
     this.initialState = {
       caption: "",
-      isCompleted: false
+      isCompleted: false,
+      isEditable: false
     };
 
     this.state = this.initialState;
@@ -14,11 +15,8 @@ class Form extends Component {
 
   handleChange = event => {
     const { value: caption } = event.target;
-    const { abc } = this.state;
-
-    console.log(abc);
-
     const isCompleted = false;
+    const isEditable = false;
 
     // console.log(this.state)
     // console.log(event.target)
@@ -27,7 +25,8 @@ class Form extends Component {
 
     this.setState({
       caption,
-      isCompleted
+      isCompleted,
+      isEditable
     });
   };
 
