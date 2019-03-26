@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 
 const TableHead = () => {
   return (
@@ -13,7 +13,7 @@ const TableHead = () => {
 };
 
 const RenderText = props => {
-  var changedText = "";
+  var [changedText, updateChangeText] = useState(props.row.caption);
 
   const onSubmit = event => {
     event.preventDefault();
@@ -22,13 +22,13 @@ const RenderText = props => {
 
   const onChange = event => {
     const { value } = event.target;
-    changedText = value;
+    updateChangeText(value);
   };
 
   if (props.row.isEditable) {
     return (
       <form onSubmit={onSubmit}>
-        <input type="text" onChange={onChange} />
+        <input type="text" onChange={onChange} value={changedText} />
       </form>
     );
   } else {
@@ -88,3 +88,4 @@ class List extends Component {
 }
 
 export default List;
+// "input" "bind" "arrow function" "components function class"
