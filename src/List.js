@@ -88,4 +88,3 @@ class List extends Component {
 }
 
 export default List;
-// "input" "bind" "arrow function" "components function class"
